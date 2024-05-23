@@ -2,9 +2,9 @@ package com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.ap
 
 import com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.remote.ExperimentDto
 import retrofit2.http.GET
-
+import retrofit2.Response
 interface ExperimentAPI {
-    @GET("/get-experiments")
-    suspend fun getExperiments():List<ExperimentDto>
+    @GET("/fact")
+    suspend fun getExperiments():Response<List<ExperimentDto>>
 
 }

@@ -1,27 +1,25 @@
 package com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.workexperimentfetch.taskExperiment.Workindia.Response
+import com.example.workexperimentfetch.taskExperiment.Workindia.useCase.GetExperimentsUseCaseTwo
 import com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.remote.ExperimentData
-import com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.useCase.GetExperimentsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class GetExperimentsViewModel @Inject constructor(
-    val getExperimentsUseCase: GetExperimentsUseCase
+    val getExperimentsUseCaseTwo: GetExperimentsUseCaseTwo
 ) : ViewModel() {
-    private val _experiments = MutableLiveData<List<ExperimentData>>()
-    val experiments: LiveData<List<ExperimentData>> get() = _experiments
-
-    init {
+    private val _experiments = MutableStateFlow<Response<List<ExperimentData>>?>(null)
+    val experiments = _experiments.asStateFlow()
+    fun getExperiment(){
         viewModelScope.launch {
-            getExperimentsUseCase.execute().collect { experiments ->
-                _experiments.postValue(experiments)
-            }
+            _experiments.value = getExperimentsUseCaseTwo.execute()
         }
     }
 
