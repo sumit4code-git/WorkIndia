@@ -1,6 +1,8 @@
 package com.example.workexperimentfetch.taskExperiment.worksTasks
 
-sealed class Response<out T> {
-    data class Success<out T>(val data: T) : Response<T>()
-    data class Failure(val exception: Throwable) : Response<Nothing>()
+sealed class Resource<T> {
+    class Success<T>(val data: T) : Resource<T>()
+    class Error<T>(val message: String, val code: Int = 400) : Resource<T>()
+    class Loading<T> : Resource<T>()
+    class Empty<T> : Resource<T>()
 }
