@@ -1,9 +1,9 @@
-package com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.remote
+package com.example.workexperimentfetch.taskExperiment.worksTasks.remote
 
 import com.google.gson.annotations.SerializedName
 
 data class ExperimentDto(
-    @SerializedName("experiment_name")
+    val fact: String,
     val experimentName: String,
     @SerializedName("is_enabled")
     val isEnabled: String,

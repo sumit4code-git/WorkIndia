@@ -1,4 +1,4 @@
-package com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.remote
+package com.example.workexperimentfetch.taskExperiment.worksTasks.remote
 
 data class ExperimentData(
     val experimentName: String,

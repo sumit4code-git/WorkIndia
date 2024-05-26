@@ -1,10 +1,9 @@
-package com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.di
+package  com.example.workexperimentfetch.taskExperiment.worksTasks.di
 
+import com.example.workexperimentfetch.taskExperiment.worksTasks.api.ExperimentAPI
+import com.example.workexperimentfetch.taskExperiment.worksTasks.remote.ExperimentRepo
+import com.example.workexperimentfetch.taskExperiment.worksTasks.remote.ExperimentRepoImpl
 import com.google.gson.GsonBuilder
-import com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.api.ExperimentAPI
-import com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.remote.ExperimentRepo
-import com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.remote.ExperimentRepoImpl
-import com.pw.pwdailylearning.network.ApiWorker
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

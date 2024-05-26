@@ -1,4 +1,4 @@
-package com.pw.pwdailylearning.network
+package  com.example.workexperimentfetch.taskExperiment.worksTasks.remote
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient

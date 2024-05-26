@@ -1,11 +1,4 @@
-package com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.local.dao
-
-import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import com.penpencil.physicswallah.feature.batchlanding.ui.Testing.Workindia.remote.ExperimentData
+package  com.example.workexperimentfetch.taskExperiment.worksTasks.local.dao
 
 //@Dao
 //interface ExperimentDao {

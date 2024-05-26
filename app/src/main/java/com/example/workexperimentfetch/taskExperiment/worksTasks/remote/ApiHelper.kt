@@ -1,4 +1,4 @@
-package com.pw.pwdailylearning.network
+package com.example.workexperimentfetch.taskExperiment.worksTasks.remote
 
 import retrofit2.Retrofit
 
