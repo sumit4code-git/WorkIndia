@@ -1,6 +1,10 @@
 package  com.example.workexperimentfetch.taskExperiment.worksTasks.di
 
+import android.content.Context
 import com.example.workexperimentfetch.taskExperiment.worksTasks.api.ExperimentAPI
+import com.example.workexperimentfetch.taskExperiment.worksTasks.local.dao.ExperimentDao
+import com.example.workexperimentfetch.taskExperiment.worksTasks.local.db.ExperimentDb
+import com.example.workexperimentfetch.taskExperiment.worksTasks.local.db.createRoomDb
 import com.example.workexperimentfetch.taskExperiment.worksTasks.remote.ExperimentRepo
 import com.example.workexperimentfetch.taskExperiment.worksTasks.remote.ExperimentRepoImpl
 import com.google.gson.GsonBuilder
@@ -8,6 +12,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -41,6 +46,18 @@ abstract class ExperimentModule {
         @Provides
         fun provideApiService(retrofit: Retrofit): ExperimentAPI {
             return retrofit.create(ExperimentAPI::class.java)
+        }
+
+        @Singleton
+        @Provides
+        fun provideRoomDb(@ApplicationContext context : Context): ExperimentDb {
+            return context.createRoomDb()
+        }
+
+        @Singleton
+        @Provides
+        fun provideExperimentDao(experimentDb: ExperimentDb): ExperimentDao {
+            return experimentDb.experimentDao()
         }
 
     }

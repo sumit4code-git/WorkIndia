@@ -1,13 +1,16 @@
-package  com.example.workexperimentfetch.taskExperiment.worksTasks.local.dao
+package com.example.workexperimentfetch.taskExperiment.worksTasks.local.dao
 
-//@Dao
-//interface ExperimentDao {
-//    @Query("SELECT * FROM experiment_table")
-//    suspend fun getAllExperiments(): LiveData<List<ExperimentData>>
-//
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    suspend fun insertAll(experiments: List<ExperimentData>)
-//
-//    @Query("DELETE FROM experiment_table WHERE lastCached < :expiryTime")
-//    suspend fun deleteExpiredExperiments(expiryTime: Long)
-//}
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.example.workexperimentfetch.taskExperiment.worksTasks.local.entity.ExperimentEntity
+import kotlinx.coroutines.flow.Flow
+@Dao
+interface ExperimentDao {
+    @Query("SELECT * FROM experiment_table")
+     fun getExperiments(): List<ExperimentEntity>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+     fun setExperiments(exp:ExperimentEntity): Long
+}
