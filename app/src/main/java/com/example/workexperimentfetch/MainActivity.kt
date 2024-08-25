@@ -16,6 +16,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.workexperimentfetch.taskExperiment.worksTasks.Resource
+import com.example.workexperimentfetch.taskExperiment.worksTasks.services.Services
 import com.example.workexperimentfetch.taskExperiment.worksTasks.viewmodel.GetExperimentsViewModel
 import com.example.workexperimentfetch.ui.theme.WorkExperimentFetchTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,12 +34,14 @@ class MainActivity : AppCompatActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android", viewModel)
+//                    Greeting("Android",viewModel)
+                    Services("Android", this)
                 }
             }
         }
     }
 }
+
 
 @Composable
 fun Greeting(name: String, vm: GetExperimentsViewModel) {
@@ -58,8 +61,10 @@ fun Greeting(name: String, vm: GetExperimentsViewModel) {
         is Resource.Loading -> {
             CircularProgressIndicator(modifier = Modifier.size(20.dp))
         }
+
         else -> {
             Unit
         }
     }
+
 }
